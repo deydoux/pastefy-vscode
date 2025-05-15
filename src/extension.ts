@@ -54,8 +54,8 @@ export function createPaste(req: any){
 				Authorization: `Bearer ${ vscode.workspace.getConfiguration("pastefy").get("pastefyAPIKey") }`
 			}
 		}).then(res => {			
-			vscode.window.showInformationMessage(`Pasted! https://pastefy.app/${res.data.paste.id}`);
-			vscode.env.clipboard.writeText(`https://pastefy.app/${res.data.paste.id}`);
+			vscode.window.showInformationMessage(`Pasted! ${baseURL()}/${res.data.paste.id}`);
+			vscode.env.clipboard.writeText(`${baseURL()}/${res.data.paste.id}`);
 			return res.data
 		}).catch(e => {
 			console.log(e);
